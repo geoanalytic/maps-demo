@@ -46,6 +46,7 @@ LOCAL_APPS = (
     # custom users app
     'maps_demo.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'django.contrib.gis',
     'location',
 )
 
@@ -103,7 +104,10 @@ DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///maps_demo'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
+# Use this kludge to prevent geodjango from trying to add the postgis extension
+# POSTGIS_TEMPLATE = 'postgres:///maps_demo'
 
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------

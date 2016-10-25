@@ -28,7 +28,6 @@ class GoogleAdmin(admin.OSMGeoAdmin):
       }),
   )
   list_display = ('__str__',)
-  list_filter = ('facilitytype',)
   search_fields = [ 'address1','city']
 
 
